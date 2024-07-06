@@ -1,0 +1,45 @@
+# Ignore the virtual environment directory
+venv/
+
+# Environment variables file (contains sensitive information)
+.env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging (files and directories created during packaging and distribution)
+.Python                  # Python interpreter indicator
+build/                   # Build artifacts
+develop-eggs/            # Development eggs
+dist/                    # Distribution packages
+downloads/               # Downloaded files
+eggs/                    # Egg packages
+.eggs/                   # Egg metadata
+lib/                     # Library files
+lib64/                   # 64-bit library files
+parts/                   # Parts of the build process
+sdist/                   # Source distribution packages
+var/                     # Variable data, logs, or state files
+wheels/                  # Wheel packages
+*.egg-info/              # Egg metadata
+.installed.cfg           # Installed package state
+*.egg                    # Python egg files
+
+# Flask specific
+instance/                # Flask instance folder
+.webassets-cache         # Flask web assets cache
+
+# Pytest (test cache)
+.cache/
+
+# My editor (example: VSCode)
+.vscode/
+
+# Other
+*.log                    # Log files
+*.sqlite3                # SQLite database files
+*.py[co]                 # Compiled Python files
+.DS_Store                # macOS specific metadata
+Thumbs.db                # Windows specific metadata
