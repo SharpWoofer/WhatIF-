@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Trending Movies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
     <script src="{{ url_for('static', filename='themeSwitch.js') }}" defer></script>
 </head>
@@ -13,23 +14,49 @@
         </label>
         <em>Enable Dark Mode!</em>
     </div>
-    <div class="outer-container">
-        <div class="container">
-            <img src="{{ url_for('static', filename='images/cinema.jpg') }}" alt="Cinema Image">
-            <h1>Welcome to <i>What-If</i>, where you can re-write your favourite movies with a click of a button! Our website allows you to responsively search for your desired movie, and our Generative AI model will generate a fresh, alternative plot for you.</h1>
-            <h2>You can search with the following top 10 movies listed, or input your own movie in the search box below.</h2><br>
-            <!-- Carousel Container -->
-            <div class="carousel-container">
-                <div class="carousel-content"></div>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="text-content">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Website Logo" class="logo">
+                <h1>Welcome to <i>What-If...?</i></h1>
+                <p>Explore alternative plots for your favourite movies with a click of a button!</p>
             </div>
-            <h2>Search for a movie</h2>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#search-section">Search</a></li>
+                    <li><a href="#carousel-section">Trending</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content">
+        <section id="search-section" class="search-section">
+            <h2>Discover a New Perspective</h2>
             <form method="post" action="/generate_plot">
-                <input type="text" id="movieTitleInput" name="movie_title" placeholder="Type to search..." autocomplete="off">
+                <input type="text" id="movieTitleInput" name="movie_title" placeholder="Search for a movie..." autocomplete="off">
                 <div id="autocompleteList" class="autocomplete-items"></div>
                 <button type="submit">Generate Plot</button>
             </form>
+        </section>
+        <section id="carousel-section" class="carousel-section">
+            <h2>Or select from today's top trending movies</h2>
+            <div class="carousel-container">
+                <div class="carousel-content">
+                    <!-- Carousel items will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 What-If...? All rights reserved.</p>
+            <ul class="social-links">
+                <li><a href="#"><img src="{{ url_for('static', filename='images/facebook-icon.png') }}" alt="Facebook"></a></li>
+                <li><a href="#"><img src="{{ url_for('static', filename='images/twitter-icon.png') }}" alt="Twitter"></a></li>
+                <li><a href="#"><img src="{{ url_for('static', filename='images/instagram-icon.png') }}" alt="Instagram"></a></li>
+            </ul>
         </div>
-    </div>
+    </footer>
     <script src="{{ url_for('static', filename='autocomplete.js') }}"></script>
     <script src="{{ url_for('static', filename='carousel.js') }}"></script>
 </body>

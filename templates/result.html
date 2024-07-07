@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Generated Plot</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='result.css') }}">
-	<script src="{{ url_for('static', filename='themeSwitch.js') }}" defer></script>
+    <title>Generated Plot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='result.css') }}">
+    <script src="{{ url_for('static', filename='themeSwitch.js') }}" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="light-theme">
-	<div class="theme-switch-wrapper">
-		<label class="theme-switch" for="checkbox">
-			<input type="checkbox" id="checkbox" />
-			<div class="slider round"></div>
-		</label>
-		<em>Enable Dark Mode!</em>
-	</div>
-	<div class="content" id="content"> <!-- Changed to `content` for delegation -->
-		<div class="container" id="container">
-			<h1>Alternative Plot for "{{ title }}"</h1>
-			<hr> <!-- Add a horizontal line below the header -->
-			<input type="hidden" id="title" name="title" value="{{ title|safe }}">
-			<h2>{{ title_new|safe }}</h2> <!-- Display the extracted title as a subheading -->
-			<!-- Use the |safe filter to render HTML -->
-			<div>{{ plot|safe }}</div>
-			<button id="regeneratePlot">Regenerate Plot</button> <!-- Regenerate Plot Button -->
-			<div class="right-align">
-				<a href="/">Try another movie</a>
-			</div>
-		</div>
-	</div>
-	<script>
-		document.getElementById('content').addEventListener('click', function(event) {
-			if (event.target && event.target.id === 'regeneratePlot') {
-				const movieTitle = encodeURIComponent(document.getElementById('title').value); // Assuming you have the movie title available
-				fetch(`/generate_plot?movie_title=${movieTitle}`, {
-					method: 'GET'
-				})
-				.then(response => response.text()) // Adjusted from response.json() to response.text()
-				.then(data => {
-					document.getElementById('container').innerHTML = data;
-					// Ensure the fetched data does not include another dark mode toggle
-				})
-				.catch(error => console.error('Error regenerating plot:', error));
-			}
-		});
-	</script>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+        <em class="dark-mode-text">Enable Dark Mode!</em>
+    </div>
+    <div class="content" id="content">
+        <div class="container" id="container">
+            <h1>Alternative Plot for "{{ title }}"</h1>
+            <hr>
+            <input type="hidden" id="title" name="title" value="{{ title|safe }}">
+            <h2>{{ title_new|safe }}</h2>
+            <div class="plot-text">{{ plot|safe }}</div>
+            <button id="regeneratePlot">Regenerate Plot</button>
+            <div class="right-align">
+                <a href="/">Try another movie</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('content').addEventListener('click', function(event) {
+            if (event.target && event.target.id === 'regeneratePlot') {
+                const movieTitle = encodeURIComponent(document.getElementById('title').value);
+                fetch(`/generate_plot?movie_title=${movieTitle}`, {
+                    method: 'GET'
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('container').innerHTML = data;
+                })
+                .catch(error => console.error('Error regenerating plot:', error));
+            }
+        });
+    </script>
 </body>
 </html>

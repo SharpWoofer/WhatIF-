@@ -1,10 +1,13 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    transition: background-color 0.5s ease;
+    box-sizing: border-box;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+/* Light and Dark Themes */
 .light-theme {
     background-color: #fff;
     color: #333;
@@ -15,24 +18,6 @@ body {
     color: #FF7A7A;
 }
 
-.outer-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    min-height: 100vh;
-}
-
-.container {
-    width: 75%;
-    max-width: 1200px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    transition: background-color 0.5s ease;
-}
-
 .light-theme .container {
     background-color: #fff;
 }
@@ -41,67 +26,14 @@ body {
     background-color: #333;
 }
 
-.container img {
-    width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-h1, h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-.carousel-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    overflow-x: auto;
-    margin: 20px 0;
-}
-
-.carousel-content {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.carousel-content img {
-    width: 200px;
-    height: auto;
-    margin: 0 10px;
-}
-
-form {
-    margin-top: 20px;
-}
-
-input[type="text"], button {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-button {
-    background-color: #f00;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.5s ease;
-}
-
-button:hover {
-    background-color: #b30000;
-}
-
+/* Theme Switch */
 .theme-switch-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    background: #f0f0f0;
+    padding: 10px;
 }
 
 .theme-switch {
@@ -112,7 +44,7 @@ button:hover {
 }
 
 .theme-switch input {
-    display:none;
+    display: none;
 }
 
 .slider {
@@ -151,4 +83,157 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+/* Header */
+.site-header {
+    background: #333;
+    color: white;
+    padding: 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 50px;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navigation ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.navigation ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Main Content */
+.main-content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.search-section form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#movieTitleInput {
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+#autocompleteList {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    width: 300px;
+    z-index: 1000;
+}
+
+.autocomplete-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.autocomplete-items div:hover {
+    background: #ddd;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background: #555;
+}
+
+/* Carousel Section */
+.carousel-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.carousel-content {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-content img {
+    width: 200px;
+    height: auto;
+    margin: 0 10px;
+}
+
+/* Footer */
+.site-footer {
+    background: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin: 0;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.social-links li {
+    margin: 0 10px;
+}
+
+.social-links li a img {
+    width: 24px;
 }
