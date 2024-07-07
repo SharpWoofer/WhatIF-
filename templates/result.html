@@ -37,6 +37,15 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('container').innerHTML = data;
+					
+					// Ensure the fetched data does not include another dark mode toggle
+					const themeSwitchWrappers = document.querySelectorAll('.theme-switch-wrapper');
+					if (themeSwitchWrappers.length > 1) {
+						for (let i = 1; i < themeSwitchWrappers.length; i++) {
+							themeSwitchWrappers[i].remove();
+						}
+					}
+				
                 })
                 .catch(error => console.error('Error regenerating plot:', error));
             }
