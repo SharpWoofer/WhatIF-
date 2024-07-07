@@ -7,6 +7,7 @@
 <body>
 	<div class="container">
 		<h1>Alternative Plot for "{{ title }}"</h1>
+		<hr> <!-- Add a horizontal line below the header -->
 		<h2>{{ title_new|safe }}</h2> <!-- Display the extracted title as a subheading -->
 		<!-- Use the |safe filter to render HTML -->
 		<div>{{ plot|safe }}</div>

@@ -8,8 +8,8 @@
     <div class="outer-container">
         <div class="container">
             <img src="{{ url_for('static', filename='images/cinema.jpg') }}" alt="Cinema Image">
-            <h1>10 MOST POPULAR MOVIES RIGHT NOW: WHAT TO WATCH IN THEATERS AND STREAMING</h1>
-            <p>See your favourite movies, re-written by our AI model!</p>
+            <h1>Welcome to <i>What-If</i>, where you can re-write your favourite movies with a click of a button! Our website allows you to responsively search for your desired movie, and our Generative AI model will generate a fresh, alternative plot for you.</h1>
+            <h2>You can search with the following top 10 movies listed, or input your own movie in the search box below.</h2><br>
             <ul class="movie-list">
                 {% for index in range(trending_movies|length) %}
                     {% set movie = trending_movies[index] %}
@@ -23,7 +23,7 @@
                     </li>
                 {% endfor %}
             </ul>
-            <h2>Click here to generate a new alternative plot</h2>
+            <h2>Search for a movie</h2>
             <form method="post" action="/generate_plot">
                 <input type="text" id="movieTitleInput" name="movie_title" placeholder="Type to search..." autocomplete="off">
                 <div id="autocompleteList" class="autocomplete-items"></div>
