@@ -1,0 +1,32 @@
+body {
+	font-family: 'Arial', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f4f4f4;
+	color: #333;
+}
+.container {
+	max-width: 800px;
+	margin: auto;
+	background: white;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1, h2 {
+	color: #000; /* Set titles to black */
+}
+div {
+	margin-bottom: 20px;
+}
+a {
+	display: inline-block;
+	text-decoration: none;
+	background-color: #0066cc;
+	color: white;
+	padding: 10px 15px;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+}
+a:hover {
+	background-color: #0056b3;
+}
