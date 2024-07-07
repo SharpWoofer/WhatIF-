@@ -1,98 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Movie Plot Generator</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            color: #0066cc;
-        }
-        .carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-        }
-        .carousel-item {
-            flex: 0 0 auto;
-            width: 200px;
-            margin: 10px;
-            text-align: center;
-        }
-        .carousel-item img {
-            width: 100%;
-            border-radius: 4px;
-        }
-        .carousel-item span {
-            display: block;
-            margin-top: 5px;
-        }
-        form {
-            margin-top: 20px;
-        }
-        input[type="text"] {
-            padding: 10px;
-            margin-right: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #0066cc;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>Trending Movies</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Trending Movies</h1>
-        <div class="carousel">
-            <!-- Carousel items will be inserted here -->
-            <!-- Example of a carousel item:
-            <div class="carousel-item">
-                <img src="path_to_movie_poster.jpg" alt="Movie Title">
-                <span>Movie Title</span>
-            </div>
-            -->
+    <div class="outer-container">
+        <div class="container">
+            <img src="{{ url_for('static', filename='images/cinema.jpg') }}" alt="Cinema Image">
+            <h1>10 MOST POPULAR MOVIES RIGHT NOW: WHAT TO WATCH IN THEATERS AND STREAMING</h1>
+            <p>See your favourite movies, re-written by our AI model!</p>
+            <ul class="movie-list">
+                {% for index in range(trending_movies|length) %}
+                    {% set movie = trending_movies[index] %}
+                    <li>
+                        <div class="movie-info">
+                            <div class="title">{{ movie['title'] }}</div>
+                        </div>
+                        <div class="rank-container">
+                            <div class="rank">#{{ index + 1 }}</div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <h2>Click here to generate a new alternative plot</h2>
+            <form method="post" action="/generate_plot">
+                <input type="text" id="movieTitleInput" name="movie_title" placeholder="Type to search..." autocomplete="off">
+                <div id="autocompleteList" class="autocomplete-items"></div>
+                <button type="submit">Generate Plot</button>
+            </form>
         </div>
-        <h2>Or search for a movie</h2>
-        <form method="post" action="/generate_plot">
-            <input type="text" id="movieTitleInput" name="movie_title" placeholder="Type to search..." autocomplete="off">
-            <div id="autocompleteList" class="autocomplete-items"></div>
-            <button type="submit">Generate Plot</button>
-        </form>
     </div>
-    <script src="{{ url_for('static', filename='autocomplete.js') }}"></script>
-    <script>
-        let scrollAmount = 0;
-        const carousel = document.querySelector('.carousel');
-        setInterval(() => {
-            if(scrollAmount < carousel.scrollWidth - carousel.clientWidth) {
-                scrollAmount += 200; // Scroll by 200px every 2 seconds
-            } else {
-                scrollAmount = 0; // Reset scroll amount to start
-            }
-            carousel.scrollTo({left: scrollAmount, behavior: 'smooth'});
-        }, 2000);
-    </script>
-	<script src="{{ url_for('static', filename='carousel.js') }}"></script>
+        <script src="{{ url_for('static', filename='autocomplete.js') }}"></script>
+        <script>
+            let scrollAmount = 0;
+            const carousel = document.querySelector('.carousel');
+            setInterval(() => {
+                if(scrollAmount < carousel.scrollWidth - carousel.clientWidth) {
+                    scrollAmount += 200; // Scroll by 200px every 2 seconds
+                } else {
+                    scrollAmount = 0; // Reset scroll amount to start
+                }
+                carousel.scrollTo({left: scrollAmount, behavior: 'smooth'});
+            }, 2000);
+        </script>
+        <script src="{{ url_for('static', filename='carousel.js') }}"></script>
 </body>
 </html>
