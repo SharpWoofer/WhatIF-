@@ -65,15 +65,25 @@ def generate_plot(overview):
         title_new = "Unknown Title"
         html_output = Markup(generated_content.replace("\n", "<br>"))
         return title_new, html_output
+    
+@app.route('/trending_movies', methods=['GET'])
+def get_trending_movies():
+    return jsonify(fetch_trending_movies())
 
 @app.route('/', methods=['GET'])
 def index():
     trending_movies = fetch_trending_movies()
     return render_template('index.html', trending_movies=trending_movies)
 
-@app.route('/generate_plot', methods=['POST'])
+@app.route('/generate_plot', methods=['GET', 'POST'])
 def generate_plot_route():
-    movie_title = request.form['movie_title']
+    if request.method == 'POST':
+        # Initial plot generation
+        movie_title = request.form['movie_title']
+    elif request.method == 'GET':
+        # Plot regeneration
+        movie_title = request.args.get('movie_title')
+    
     movie_overview = fetch_movie_overview(movie_title)
     if movie_overview != "No overview found.":
         title_new, generated_plot = generate_plot(movie_overview)
@@ -81,6 +91,7 @@ def generate_plot_route():
     else:
         title_new = "Unknown Title"
         generated_plot = "Unable to generate plot. Movie overview not found."
+    
     return render_template('result.html', plot=generated_plot, title=movie_title, title_new=title_new)
 
 if __name__ == '__main__':
