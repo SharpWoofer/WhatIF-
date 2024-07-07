@@ -94,5 +94,7 @@ def generate_plot_route():
     
     return render_template('result.html', plot=generated_plot, title=movie_title, title_new=title_new)
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 10000))
+    app.run(host='0.0.0.0', port=port)
