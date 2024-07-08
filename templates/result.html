@@ -28,19 +28,23 @@
         </div>
     </div>
     <script>
-        document.getElementById('content').addEventListener('click', function(event) {
-            if (event.target && event.target.id === 'regeneratePlot') {
-                const movieTitle = encodeURIComponent(document.getElementById('title').value);
-                fetch(`/generate_plot?movie_title=${movieTitle}`, {
-                    method: 'GET'
-                })
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('container').innerHTML = data;
-                })
-                .catch(error => console.error('Error regenerating plot:', error));
-            }
-        });
+    document.getElementById('content').addEventListener('click', function() {
+        const movieTitle = document.getElementById('title').value;
+        // Use the current timestamp as a seed
+        const seed = Date.now();
+        fetch(`/generate_plot`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `movie_title=${encodeURIComponent(movieTitle)}&seed=${seed}`
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('container').innerHTML = data;
+        })
+        .catch(error => console.error('Error regenerating plot:', error));
+    });
     </script>
 </body>
 </html>

@@ -40,8 +40,9 @@ def fetch_trending_movies():
         movie['poster_path'] = f"https://image.tmdb.org/t/p/w500{movie['poster_path']}"
     return data['results'][:10]  # Return top 10 trending movies with poster paths
 
-def generate_plot(overview):
-    prompt = "Keeping the tone of the movie and its characters intact, generate another plot that would fit based on the original: " + overview + "Always start with the title prased as Title: " "" 
+def generate_plot(overview, seed):
+    # Incorporate the seed into the prompt
+    prompt = f"Seed: {seed}. Keeping the tone of the movie and its characters intact, generate another plot that would fit based on the original: {overview} Always start with the title phrased as Title: "
 
     client = InferenceClient(
         "mistralai/Mistral-7B-Instruct-v0.3",
@@ -75,18 +76,14 @@ def index():
     trending_movies = fetch_trending_movies()
     return render_template('index.html', trending_movies=trending_movies)
 
-@app.route('/generate_plot', methods=['GET', 'POST'])
+@app.route('/generate_plot', methods=['POST'])
 def generate_plot_route():
-    if request.method == 'POST':
-        # Initial plot generation
-        movie_title = request.form['movie_title']
-    elif request.method == 'GET':
-        # Plot regeneration
-        movie_title = request.args.get('movie_title')
+    movie_title = request.form['movie_title']
+    seed = request.form.get('seed', None)
     
     movie_overview = fetch_movie_overview(movie_title)
     if movie_overview != "No overview found.":
-        title_new, generated_plot = generate_plot(movie_overview)
+        title_new, generated_plot = generate_plot(movie_overview, seed)
         print(title_new)
     else:
         title_new = "Unknown Title"
