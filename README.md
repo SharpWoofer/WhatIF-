@@ -70,5 +70,5 @@ Contributions are what make the open-source community such an amazing place to l
 
 ## 📄 License
 
-Distributed under the MIT License. See LICENSE for more information.
+Distributed under the MIT License. See LICENSE for more information. <br />
 Mistral 7B is under [Apache 2 License](https://choosealicense.com/licenses/apache-2.0/), which permits its use without any constraints.
