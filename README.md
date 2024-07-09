@@ -3,6 +3,8 @@
 ![Built with Flask](https://img.shields.io/badge/Built%20with-Flask-blue)
 ![AI Model](https://img.shields.io/badge/AI%20Model-Mistral--7B--Instruct--v0.3-green)
 ![Deployed on PythonAnywhere](https://img.shields.io/badge/Deployed%20on-PythonAnywhere-lightgrey)
+![GitHub stars](https://img.shields.io/github/stars/SharpWoofer/WhatIF-?style=social)
+![GitHub forks](https://img.shields.io/github/forks/SharpWoofer/WhatIF-?style=social)
 
 Explore alternative plots for your favorite movies with the power of AI.
 
@@ -35,7 +37,7 @@ To get a local copy up and running, follow these simple steps:
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/SharpWoofer/whatif.git
+   git clone https://github.com/SharpWoofer/WhatIF-.git
    ```
 2. Navigate to the project directory
   ```sh
