@@ -41,7 +41,7 @@ To get a local copy up and running, follow these simple steps:
    ```
 2. Navigate to the project directory
   ```sh
-   cd whatif
+   cd WhatIF-
    ```
 3. Install dependencies
   ```sh
