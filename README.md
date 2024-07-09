@@ -3,8 +3,8 @@
 ![Built with Flask](https://img.shields.io/badge/Built%20with-Flask-blue)
 ![AI Model](https://img.shields.io/badge/AI%20Model-Mistral--7B--Instruct--v0.3-green)
 ![Deployed on PythonAnywhere](https://img.shields.io/badge/Deployed%20on-PythonAnywhere-lightgrey)
-![GitHub stars](https://img.shields.io/github/stars/SharpWoofer/whatif?style=social)
-![GitHub forks](https://img.shields.io/github/forks/SharpWoofer/whatif?style=social)
+![GitHub stars](https://img.shields.io/github/stars/SharpWoofer/whatif-style=social)
+![GitHub forks](https://img.shields.io/github/forks/SharpWoofer/whatif-style=social)
 
 Explore alternative plots for your favorite movies with the power of AI.
 
