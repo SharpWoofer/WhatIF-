@@ -17,7 +17,6 @@ Check out the live demo: [whatifai.pythonanywhere.com](http://whatifai.pythonany
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
-- [Contact](#contact)
 
 ## 📜 About the Project
 
