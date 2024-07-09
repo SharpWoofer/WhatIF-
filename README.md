@@ -20,7 +20,7 @@ Check out the live demo: [whatifai.pythonanywhere.com](http://whatifai.pythonany
 
 ## 📜 About the Project
 
-What-If...? is a Flask application that generates alternative movie plots using the [mistralai/Mistral-7B-Instruct-v0.3](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3) text generation AI model. Users can input an existing movie plot, and the AI will generate a new, imaginative version.
+What-If...? is a Flask application that generates alternative movie plots using the [mistralai/Mistral-7B-Instruct-v0.3](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3) text generation AI model. Users can input an a movie of their choice, and the AI will generate a new, imaginative version.
 
 ## 🚀 Getting Started
 
