@@ -1,5 +1,6 @@
 # What-If...?
-![Uploading Untitled.png…]()
+
+![Untitled](https://github.com/SharpWoofer/WhatIF-/assets/127273523/0a584e8d-a537-4ee5-a899-5bb265fd4e24)
 
 ![Built with Flask](https://img.shields.io/badge/Built%20with-Flask-blue)
 ![AI Model](https://img.shields.io/badge/AI%20Model-Mistral--7B--Instruct--v0.3-green)
