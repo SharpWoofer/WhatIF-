@@ -12,6 +12,10 @@ Explore alternative plots for your favorite movies with the power of AI.
 
 Check out the live demo: [whatifai.pythonanywhere.com](http://whatifai.pythonanywhere.com)
 
+### 🎥 Watch the Demo
+
+[![Watch the Demo](https://img.youtube.com/vi/EIMh_vdXtto/maxresdefault.jpg)](https://www.youtube.com/watch?v=EIMh_vdXtto)
+
 ## 📖 Table of Contents
 
 - [About the Project](#about-the-project)
